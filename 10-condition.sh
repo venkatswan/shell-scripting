@@ -2,9 +2,9 @@
 
 NUMBER=$1
 
-if[ $NUMBER % 2 -eq 0 ]
+if[ $NUMBER -gt 20 ]
 then
-    echo "Number is even"
+    echo "Number is 20 above"
 else 
-    echo "number is odd"
+    echo "number is o20 below"
 fi
