@@ -25,19 +25,19 @@ else
     echo "MYSQL is already installed, Nothing to do..."
 fi
 
-dnf list installed mysqll
+dnf list installed nginx
 
 if [ $? -ne 0 ]
 then 
-    echo "MYSQL is not installed, going to install now..."
-    dnf install mysqll -y
-    if [ $? -ne 0]
+    echo "NGINX is not installed, going to install now..."
+    dnf install nginx -y
+    if [ $? -ne 0 ]
     then
-        echo "mysql installation is FAIL check it"
+        echo "NGINX installation is FAIL check it"
         exit 1
     else
-        echo "mysql installation is SUCCESS"
+        echo "NGINX installation is SUCCESS"
     fi
 else    
-    echo "MYSQL is already installed, Nothing to do..."
+    echo "NGINX is already installed, Nothing to do..."
 fi
