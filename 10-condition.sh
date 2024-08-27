@@ -2,9 +2,9 @@
 
 NUMBER=$1
 
-if[ $NUMBER -gt 20 ]
+if [ $NUMBER -gt 20 ]
 then
-    echo "Number is 20 above"
+    echo "Number : $NUMBER is 20 above"
 else 
-    echo "number is o20 below"
+    echo "Number : $NUMBER is 20 below"
 fi
