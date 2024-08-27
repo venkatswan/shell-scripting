@@ -6,7 +6,6 @@ read  NUMBER
 if( $NUMBER%2 == 0)
 then
     echo "Number is even"
-else
-then  
+else 
     echo "number is off"
 fi
