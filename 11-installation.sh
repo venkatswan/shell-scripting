@@ -12,8 +12,8 @@ dnf list installed mysql
 
 if [ $? -ne 0 ]
 then 
-    echo "package is not installed, going to install now..."
+    echo "MYSQL is not installed, going to install now..."
     dnf install mysql -y
 else    
-    echo "package is already installed, Nothing to do..."
+    echo "MYSQL is already installed, Nothing to do..."
 fi
