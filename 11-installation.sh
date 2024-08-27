@@ -8,4 +8,12 @@ then
     exit 1  # Exit 1 means fail and stop executing script
 fi
 
-dnf install mysql -y
+dnf list installed mysql
+
+if [ $? -ne 0 ]
+then 
+    echo "package is not installed, going to install now..."
+    dnf install mysql -y
+else    
+    echo "package is already installed, Nothing to do..."
+fi
