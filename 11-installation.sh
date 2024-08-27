@@ -8,3 +8,4 @@ then
 fi
 
 dnf install mysql -y
+dnf install nginx -y
