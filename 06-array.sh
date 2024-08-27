@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VEHICLES=("cycle","bike","car","bus","train","flight")
+VEHICLES=("cycle" "bike" "car" "bus" "train" "flight")
 
 echo "First vehicle is: ${VEHICLES[0]}"
 echo "Second Vehicle is : ${VEHICLES[1]}"
