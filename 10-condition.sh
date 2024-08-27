@@ -1,9 +1,8 @@
 #!/bin/bash
 
-echo "Enter a Number : "
-read  NUMBER
+NUMBER=$1
 
-if( $NUMBER % 2 -eq 0)
+if[ $NUMBER % 2 -eq 0 ]
 then
     echo "Number is even"
 else 
