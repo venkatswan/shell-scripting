@@ -5,6 +5,6 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
     echo "run script with root user"
-if
+fi
 
 dnf install mysql -y
