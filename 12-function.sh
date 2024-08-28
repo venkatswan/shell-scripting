@@ -2,11 +2,13 @@
 
 USERID=$(id -u)
 
-if [ $USERID -ne 0 ]
-then
-    echo "Please Run Script with ROOR USER to install packages"
-    exit 1  # Exit 1 means fail and stop executing script
-fi
+CHECK_ROOT(){
+    if [ $USERID -ne 0 ]
+    then
+        echo "Please Run Script with ROOR USER...."
+        exit 1  # Exit 1 means fail and stop executing script
+    fi
+}
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -17,6 +19,8 @@ VALIDATE(){
         echo "$2 is SUCCESS"
     fi
 }
+
+CHECK_ROOT
 
 dnf list installed mysql
 
