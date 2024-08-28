@@ -9,12 +9,12 @@ then
 fi
 
 VALIDATE(){
-    if [ $1 -ne 0]
+    if [ $1 -ne 0 ]
     then
-        echo "mysql installation is FAIL check it"
+        echo "$2 installation is FAIL check it"
         exit 1
     else
-        echo "mysql installation is SUCCESS"
+        echo "$2 installation is SUCCESS"
     fi
 }
 
