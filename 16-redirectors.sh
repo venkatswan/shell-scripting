@@ -42,3 +42,18 @@ if [ $# -eq 0 ]
 then
     USAGE
 fi
+
+echo "Script started executing at: $(date)" | tee -a $LOG_FILE
+
+for package in $@ # $@ refers to all arguments passed to it
+do
+    dnf list installed $package &>>$LOG_FILE
+    if [ $? -ne 0 ]
+    then
+        echo "$package is not installed, going to install it.." | tee -a $LOG_FILE
+        dnf install $package -y &>>$LOG_FILE
+        VALIDATE $? "Installing $package"
+    else
+        echo -e "$package is already $Y installed..nothing to do $N" | tee -a $LOG_FILE
+    fi
+done
