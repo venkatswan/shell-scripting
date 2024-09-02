@@ -7,7 +7,6 @@ TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 ZIP_FILE=$BACKUP_DIR/app-logs-$TIME_STAMP.zip
 
-
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -33,7 +32,6 @@ then
     echo -e "$BACKUP_DIR Directory $R Doesn't Exist $N"
 fi
 
-
 FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 echo "Files: $FILES"
 
@@ -42,18 +40,20 @@ then
     echo "old log files available"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
+    #check if zip file is successfully created or not
     if [ -f $ZIP_FILE ]
     then
-        echo -e " $G Zip file is created with $DAYS Log files $N"
+        echo "Successfully zippped files older than $DAYS"
+        #remove the files after zipping
         while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
         do
-            echo "Deleting log files: $file"
+            echo "Deleting file: $file"
             rm -rf $file
         done <<< $FILES
     else
-        echo -e " $R Zip file is not created with $N"
-        exit 1    
-    fi    
+        echo "Zipping the files is failed"
+        exit 1
+    fi  
 else
     echo -e "$R $DAYS Days old log files not available $N"
 fi
