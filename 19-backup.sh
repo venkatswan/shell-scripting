@@ -21,12 +21,12 @@ then
     USAGE 
 fi
 
-if [ -d $SOURCE_DIR ]
+if [ ! -d $SOURCE_DIR ]
 then
     echo -e "$SOURCE_DIR Directory $R Doesn't Exist $N"
 fi
 
-if [ -d $BACKUP_DIR ]
+if [ !-d $BACKUP_DIR ]
 then
     echo -e "$BACKUP_DIR Directory $R Doesn't Exist $N"
 fi
