@@ -51,7 +51,9 @@ then
             rm -rf $file
         done <<< $FILES
     else
-        echo -e " $R Zip file is not created with $N"    
+        echo -e " $R Zip file is not created with $N"
+        exit 1    
+    fi    
 else
     echo -e "$R $DAYS old log files not available $N"
 fi
