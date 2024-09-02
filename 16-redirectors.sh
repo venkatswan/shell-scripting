@@ -14,7 +14,7 @@ Y="\e[33m"
 N="\e[0m"
 
 USAGE(){
-    echo -e "$R USAGE:: $N sudo sh 15-redirectors.sh package1 package2 ..."
+    echo -e "$R USAGE:: $N sudo sh $0 package1 package2 ..."
     exit 1
 }
 
