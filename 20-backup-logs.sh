@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SOURCE_DIR=$1
-BACKUP_DIR=$2
-DAYS=${3:-14} #if $3 is empty, default is 14 days.
+DAYS=${1:-14} #if $1 is empty, default is 14 days.
+SOURCE_DIR=/home/ec2-user/logs
+BACKUP_DIR=/home/ec2-user/backup
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
 R="\e[31m"
