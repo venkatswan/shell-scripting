@@ -10,16 +10,16 @@ G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
 
-USAGE(){
-    echo -e "$R USAGE:: $N sh 19-backup.sh <source> <destination> <days(optional)>"
-}
-#check the source and destination are provided
+# USAGE(){
+#     echo -e "$R USAGE:: $N sh 19-backup.sh <source> <destination> <days(optional)>"
+# }
+# #check the source and destination are provided
 
-if [ $# -lt 2 ]
-then
-    USAGE
-    exit 1
-fi
+# if [ $# -lt 2 ]
+# then
+#     USAGE
+#     exit 1
+# fi
 
 if [ ! -d $SOURCE_DIR ]
 then
