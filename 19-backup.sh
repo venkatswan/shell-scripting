@@ -46,10 +46,10 @@ then
     then
         echo "Successfully zippped files older than $DAYS"
         #remove the files after zipping
-        while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
+        while IFS= read -r logfile #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
         do
-            echo "Deleting file: $file"
-            rm -rf $file
+            echo "Deleting file: $logfile "
+            rm -rf $logfile
         done <<< $FILES
     else
         echo "Zipping the files is failed"
