@@ -4,5 +4,5 @@ DAY1=${1:-14}
 
 FILES=$(find /home/ec2-user/logs -name "*.log" -mtime +$DAY1)
 
-echo "$DAY1 days Log files are $FILES"
+echo "$DAY1 days old Log files are $FILES"
 
