@@ -42,7 +42,7 @@ then
     echo "old log files available"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
-    if[ -f $ZIP_FILE ]
+    if [ -f $ZIP_FILE ]
     then
         echo -e " $G Zip file is created with $DAYS Log files $N"
         # while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
