@@ -42,18 +42,18 @@ then
     echo "old log files available"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
-    if[ -f $ZIP_FILE ]
-    then
-        echo -e " $G Zip file is created with $DAYS Log files $N"
-        while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
-        do
-            echo "Deleting log files: $file"
-            rm -rf $file
-        done <<< $FILES
-    else
-        echo -e " $R Zip file is not created with $N"
-        exit 1    
-    fi    
+    # if[ -f $ZIP_FILE ]
+    # then
+    #     echo -e " $G Zip file is created with $DAYS Log files $N"
+    #     while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
+    #     do
+    #         echo "Deleting log files: $file"
+    #         rm -rf $file
+    #     done <<< $FILES
+    # else
+    #     echo -e " $R Zip file is not created with $N"
+    #     exit 1    
+    # fi    
 else
     echo -e "$R $DAYS old log files not available $N"
 fi
