@@ -40,7 +40,7 @@ echo "Files: $FILES"
 if [ ! -z $FILES ]
 then
     echo "old log files available"
-    find ${SOURCE_DIR} -name "*.log" -mtime $DAYS | zip "$ZIP_FILE" -@
+    find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
     if[ -f $ZIP_FILE ]
     then
@@ -57,5 +57,3 @@ then
 else
     echo -e "$R $DAYS old log files not available $N"
 fi
-
-
