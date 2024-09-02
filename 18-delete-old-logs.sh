@@ -9,7 +9,7 @@ SOURCE_DIR=/home/ec2-user/logs
 
 if [ -d $SOURCE_DIR ]
 then
-    echo "$SOURCE_DIR Exists"
+    echo -e "$SOURCE_DIR Directory $G Available $N"
 else    
-    echo "$SOURCE_DIR Doesn't Exists"
+    echo -e "$SOURCE_DIR Directory $R Not Available $N"
 fi
