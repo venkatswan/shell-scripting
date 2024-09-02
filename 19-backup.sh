@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SOURCE_DIR=$1
-DEST_DIR=$2
+BACKUP_DIR=$2
 DAYS=${3:-14} #if $3 is empty, default is 14 days.
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
@@ -26,19 +26,19 @@ then
     echo "$SOURCE_DIR does not exist...Please check"
 fi
 
-if [ ! -d $DEST_DIR ]
+if [ ! -d $BACKUP_DIR ]
 then
-    echo "$DEST_DIR does not exist...Please check"
+    echo "$BACKUP_DIR does not exist...Please check"
 fi
 
-FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime $DAYS)
 
 echo "Files: $FILES"
 
-if [ ! -z "$FILES" ]
+if [ ! -z "$FILES" ] #true if FILES is empty, ! nakes it expression false
 then
     echo "Files are found"
-    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+    ZIP_FILE="$BACKUP_DIR/Backup-logs-$TIMESTAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
     #check if zip file is successfully created or not
@@ -46,10 +46,10 @@ then
     then
         echo "Successfully zippped files older than $DAYS"
         #remove the files after zipping
-        while IFS= read -r logfile #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
+        while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
         do
-            echo "Deleting file: $logfile "
-            rm -rf $logfile
+            echo "Deleting file: $file"
+            rm -rf $file
         done <<< $FILES
     else
         echo "Zipping the files is failed"
