@@ -45,11 +45,11 @@ then
     if [ -f $ZIP_FILE ]
     then
         echo -e " $G Zip file is created with $DAYS Log files $N"
-        # while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
-        # do
-        #     echo "Deleting log files: $file"
-        #     rm -rf $file
-        # done <<< $FILES
+        while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
+        do
+            echo "Deleting log files: $file"
+            rm -rf $file
+        done <<< $FILES
     else
         echo -e " $R Zip file is not created with $N"
         exit 1    
