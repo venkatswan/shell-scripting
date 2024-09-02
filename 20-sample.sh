@@ -2,7 +2,7 @@
 
 DAYS=${1:-14}
 
-FILES=$(find /home/ec2-user/log -name "*.log" -mtime $DAYS)
+FILES=$(find /home/ec2-user/logs -name "*.log" -mtime $DAYS)
 
 echo "$DAYS days Log files are $FILES"
 
