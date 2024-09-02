@@ -35,14 +35,14 @@ FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS)
 
 if [ ! -z "$FILES" ] #true if FILES is empty, ! nakes it expression false
 then
-    echo "Files are found"
+    echo "$DAYS old Log Files are : $FILES"
     ZIP_FILE="$BACKUP_DIR/Backup-logs-$TIMESTAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS | zip "$ZIP_FILE" -@
 
     #check if zip file is successfully created or not
     if [ -f $ZIP_FILE ]
     then
-        echo "Successfully zippped files older than $DAYS"
+        echo "Successfully zippped log files older than $DAYS"
         #remove the files after zipping
         while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
         do
@@ -54,5 +54,5 @@ then
         exit 1
     fi
 else
-    echo "No files older than $DAYS"
+    echo "No LOG files available older than $DAYS"
 fi
