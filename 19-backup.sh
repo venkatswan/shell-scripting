@@ -35,7 +35,7 @@ FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 
 echo "Files: $FILES"
 
-if [ ! -z $FILES ] #true if FILES is empty, ! nakes it expression false
+if [ ! -z $FILES ]
 then
     echo "Files are found"
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
