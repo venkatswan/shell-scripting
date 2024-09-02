@@ -35,7 +35,7 @@ FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS)
 
 if [ ! -z "$FILES" ] #true if FILES is empty, ! nakes it expression false
 then
-    echo "$DAYS old Log Files are : $FILES"
+    echo "$DAYS days old Log Files are : $FILES"
     ZIP_FILE="$BACKUP_DIR/Backup-logs-$TIMESTAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS | zip "$ZIP_FILE" -@
 
@@ -46,7 +46,7 @@ then
         #remove the files after zipping
         while IFS= read -r file #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
         do
-            echo "Deleting file: $file"
+            echo "Deleting log files: $file"
             rm -rf $file
         done <<< $FILES
     else
