@@ -35,9 +35,10 @@ fi
 FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 echo "Files: $FILES"
 
-if [ ! -z $FILES ]
+if [ ! -z $FILES ] #true if FILES is empty, ! nakes it expression false
 then
-    echo "old log files available"
+    echo "Files are found"
+    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
     #check if zip file is successfully created or not
@@ -53,7 +54,7 @@ then
     else
         echo "Zipping the files is failed"
         exit 1
-    fi  
+    fi
 else
-    echo -e "$R $DAYS Days old log files not available $N"
+    echo "No log files older than $DAYS"
 fi
