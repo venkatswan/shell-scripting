@@ -31,9 +31,7 @@ then
     echo "$BACKUP_DIR does not exist...Please check"
 fi
 
-FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime $DAYS)
-
-echo "Files: $FILES"
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 
 if [ ! -z "$FILES" ] #true if FILES is empty, ! nakes it expression false
 then
