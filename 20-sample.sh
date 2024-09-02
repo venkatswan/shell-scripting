@@ -2,11 +2,14 @@
 
 DAYS=${1:-14}
 
-FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime $DAYS)
+FILES=$(find /home/ec2-user/log -name "*.log" -mtime $DAYS)
 
-if [ -z "$FILES" ] #true if FILES is empty
-then
-    echo "$DAYS days Log files are $FILES"
-else
-    echo "No files older than $DAYS"
-fi
+echo "$DAYS days Log files are $FILES"
+
+
+# if [ -z "$FILES" ] #true if FILES is empty
+# then
+#     echo "$DAYS days Log files are $FILES"
+# else
+#     echo "No files older than $DAYS"
+# fi
