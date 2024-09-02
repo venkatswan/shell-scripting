@@ -3,42 +3,42 @@
 SOURCE_DIR=$1
 BACKUP_DIR=$2
 DAYS=${3:-14} #if $3 is empty, default is 14 days.
-TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-ZIP_FILE=$BACKUP_DIR/app-logs-$TIME_STAMP.zip
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
 R="\e[31m"
 G="\e[32m"
-Y="\e[33m"
 N="\e[0m"
+Y="\e[33m"
 
 USAGE(){
-    echo -e "$R USAGE:: $N sudo sh $0 <source> <backup> <days(optional)>"
-    exit 1
+    echo -e "$R USAGE:: $N sh 19-backup.sh <source> <destination> <days(optional)>"
 }
+#check the source and destination are provided
 
 if [ $# -lt 2 ]
-then 
-    USAGE 
+then
+    USAGE
+    exit 1
 fi
 
 if [ ! -d $SOURCE_DIR ]
 then
-    echo -e "$SOURCE_DIR Directory $R Doesn't Exist $N"
+    echo "$SOURCE_DIR does not exist...Please check"
 fi
 
 if [ ! -d $BACKUP_DIR ]
 then
-    echo -e "$BACKUP_DIR Directory $R Doesn't Exist $N"
+    echo "$BACKUP_DIR does not exist...Please check"
 fi
 
 FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
+
 echo "Files: $FILES"
 
 if [ ! -z $FILES ] #true if FILES is empty, ! nakes it expression false
 then
     echo "Files are found"
-    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+    ZIP_FILE="$BACKUP_DIR/app-logs-$TIMESTAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
     #check if zip file is successfully created or not
@@ -56,5 +56,5 @@ then
         exit 1
     fi
 else
-    echo "No log files older than $DAYS"
+    echo "No files older than $DAYS"
 fi
