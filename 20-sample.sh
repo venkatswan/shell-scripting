@@ -1,8 +1,9 @@
 #!/bin/bash
 
-DAYS=${1:-14}
+DAY1=${1:-14}
+DAY2=+$DAY1
 
-FILES=$(find /home/ec2-user/logs -name "*.log" -mtime +10)
+FILES=$(find /home/ec2-user/logs -name "*.log" -mtime $DAY2)
 
-echo "$DAYS days Log files are $FILES"
+echo "$DAY2 days Log files are $FILES"
 
