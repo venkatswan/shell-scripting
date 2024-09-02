@@ -55,5 +55,5 @@ then
         exit 1    
     fi    
 else
-    echo -e "$R $DAYS old log files not available $N"
+    echo -e "$R $DAYS Days old log files not available $N"
 fi
